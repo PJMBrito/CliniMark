@@ -1,0 +1,6 @@
+@PJMBrito.CliniMark_HostAddress = http://localhost:5220
+
+GET {{PJMBrito.CliniMark_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

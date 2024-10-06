@@ -1,0 +1,14 @@
+﻿{
+  "profiles": {
+    "CliniMark.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7000"
+      }
+    }
+  }
+}
