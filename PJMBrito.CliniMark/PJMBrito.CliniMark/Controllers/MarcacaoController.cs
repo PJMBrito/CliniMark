@@ -17,7 +17,7 @@ namespace PJMBrito.CliniMark.Controllers
         public ActionResult<string> Teste()
         {
             _logger.LogInformation("Gerado Log de Informação!");
-            return Ok("Funcionando");
+            return Ok("Funcionando");//
         }
     }
 }
