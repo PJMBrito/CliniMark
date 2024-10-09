@@ -1,27 +1,29 @@
 ﻿using CliniMark.Domain.Domain.Enums;
-using System;
+
 namespace CliniMark.Domain.Domain
 {
-    internal class Cliente
+    public class Cliente
     {
         public Guid Id { get; set; }
 
-        public required string Nome { get; set; }
+        public string Nome { get; set; }
 
         public string? Telefone { get; set; }
 
         public string? Email { get; set; }
 
-        public Sexo Sexo { get; set; } = Sexo.Indefinido;
+        public SexoEnum Sexo { get; set; } = SexoEnum.Indefinido;
 
         //Relacionamentos
-        public List<Agendamento> Agendamentos { get; set; }
-
+        public IEnumerable<Agendamento> Agendamentos { get; set; }
 
         //Construtor
-        public Cliente(Guid id, string nome, string? telefone, string? email, Sexo sexo)
+        public Cliente()
         {
-            Id = id;
+        }
+
+        public Cliente(string nome, string? telefone, string? email, SexoEnum sexo)
+        {
             Nome = nome;
             Telefone = telefone;
             Email = email;

@@ -1,6 +1,6 @@
 ﻿namespace CliniMark.Domain.Domain
 {
-    internal class Agendamento
+    public class Agendamento
     {
         public Guid Id { get; set; }
 
@@ -14,17 +14,18 @@
 
         //Relacionamentos
         public Cliente Cliente { get; set; }
+
         public Especialidade Especialidade { get; set; }
+
         public Colaborador Colaborador { get; set; }
 
-
         //Construtor
-        public Agendamento(Guid id, Guid clienteId, Guid especialidadeId, Guid colaboradorId, DateTime dataMarcacao, Cliente cliente, Especialidade especialidade, Colaborador colaborador)
+        public Agendamento()
         {
-            Id = id;
-            ClienteId = clienteId;
-            EspecialidadeId = especialidadeId;
-            ColaboradorId = colaboradorId;
+        }
+
+        public Agendamento(DateTime dataMarcacao, Cliente cliente, Especialidade especialidade, Colaborador colaborador)
+        {
             DataMarcacao = dataMarcacao;
             Cliente = cliente;
             Especialidade = especialidade;

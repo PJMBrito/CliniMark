@@ -1,22 +1,23 @@
-﻿using System.Reflection.PortableExecutable;
-
-namespace CliniMark.Domain.Domain
+﻿namespace CliniMark.Domain.Domain
 {
-    internal class Especialidade
+    public class Especialidade
     {
         public Guid Id { get; set; }
 
         public string Descricao { get; set; }
 
         //Relacionamentos
-        public List<Agendamento> Agendamentos { get; set; }
+        public IEnumerable<Agendamento> Agendamentos { get; set; }
 
-        public List<Colaborador> Colaboradores { get; set; }
+        public IEnumerable<Colaborador> Colaboradores { get; set; }
 
         //Construtor
-        public Especialidade(Guid id, string descricao)
+        public Especialidade()
         {
-            Id = id;
+        }
+
+        public Especialidade(string descricao)
+        {
             Descricao = descricao;
         }
     }

@@ -1,21 +1,23 @@
 ﻿namespace CliniMark.Domain.Domain
 {
-    internal class Colaborador
+    public class Colaborador
     {
         public Guid Id { get; set; }
 
-        public required string Nome { get; set; }
+        public string Nome { get; set; }
 
         //Relacionamentos
-        public List<Agendamento> Agendamentos { get; set; }
+        public IEnumerable<Agendamento> Agendamentos { get; set; }
 
-        public List<Especialidade> Especialidades { get; set; }
-
+        public IEnumerable<Especialidade> Especialidades { get; set; }
 
         //Construtor
-        public Colaborador(Guid id, string nome)
+        public Colaborador()
         {
-            Id = id;
+        }
+
+        public Colaborador(string nome)
+        {
             Nome = nome;
         }
     }
