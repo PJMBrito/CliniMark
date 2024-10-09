@@ -24,12 +24,12 @@
         {
         }
 
-        public Agendamento(DateTime dataMarcacao, Cliente cliente, Especialidade especialidade, Colaborador colaborador)
+        public Agendamento(DateTime dataMarcacao, Guid clienteId, Guid especialidadeId, Guid colaboradorId)
         {
             DataMarcacao = dataMarcacao;
-            Cliente = cliente;
-            Especialidade = especialidade;
-            Colaborador = colaborador;
+            ClienteId = clienteId;
+            EspecialidadeId = especialidadeId;
+            ColaboradorId = colaboradorId;
         }
     }
 }
