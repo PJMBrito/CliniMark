@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+
+  postgres:
+    image: postgres:15.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=bsimple
+      - POSTGRES_PASSWORD=Master$67
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  redis:
+    image: 'redis:latest'
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+
+  rabbitmq:
+    image: 'rabbitmq:3.11-management'
+    restart: always
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=unique-erlang-cookie
+    ports:
+       - '5672:5672'
+       - '15672:15672'
+
+  elasticsearch:
+    image: elasticsearch:8.6.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  kibana:
+    image: kibana:8.6.0
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+
+volumes:
+  db:
+    driver: local
