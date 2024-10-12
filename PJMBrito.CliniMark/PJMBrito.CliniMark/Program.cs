@@ -1,3 +1,5 @@
+using CliniMark.Aplication.Interfaces;
+using CliniMark.Aplication.Services;
 using CliniMark.Infrastructure.Configurations;
 
 
@@ -8,6 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigureModuleInfrastructure(builder.Configuration, typeof(Program).Assembly.FullName);
+
+builder.Services.AddScoped<IService, Service>();
 
 
 var app = builder.Build();

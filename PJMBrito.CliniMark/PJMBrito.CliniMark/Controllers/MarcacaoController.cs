@@ -1,3 +1,5 @@
+using CliniMark.Aplication.Interfaces;
+using CliniMark.Aplication.Views;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PJMBrito.CliniMark.Controllers
@@ -7,10 +9,13 @@ namespace PJMBrito.CliniMark.Controllers
     public class MarcacaoController : ControllerBase
     {
         private readonly ILogger<MarcacaoController> _logger;
+        private readonly IService _service;
+        
 
-        public MarcacaoController(ILogger<MarcacaoController> logger)
+        public MarcacaoController(ILogger<MarcacaoController> logger, IService service)
         {
             _logger = logger;
+            _service = service;
         }
 
         [HttpGet] 
@@ -19,5 +24,14 @@ namespace PJMBrito.CliniMark.Controllers
             _logger.LogInformation("Gerado Log de Informação!");
             return Ok("Funcionando");//
         }
-    }
+     
+
+        [HttpGet("especialidades-com-colaborador")]
+        public async Task<ActionResult<List<InformacaoViewModel>>> Buscare()
+        {
+            var colaboredores = await _service.ObterColaboradoresAsync();
+
+            return Ok(colaboredores);
+        }
+    }   
 }

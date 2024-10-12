@@ -35,7 +35,7 @@ namespace CliniMark.Infrastructure.Configurations
             JsonConvert.DefaultSettings = () => settings;
 
             services.AddScoped<DbContext, CliniMarkContext>();
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
 
             return services;
         }
